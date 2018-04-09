@@ -1,0 +1,26 @@
+<div>
+  Crop: 
+  <span>{{ crop }}</span>
+</div>
+<div>
+  Season: 
+  <span>{{ season }}</span>
+</div>
+<div>
+  Land Size:
+  <input type="number" [(ngModel)]="landSize">
+</div>
+<div>
+  Percent Covered:
+  <input type="number" [(ngModel)]="percentCovered">
+</div>
+
+<div>
+    Total Coverage:
+    <input type="number" [value]="getTotalCoverage()">
+  </div>
+
+<div>
+  Total Premium:
+  <input type="number" [value]="getTotalPremium()">
+</div>
