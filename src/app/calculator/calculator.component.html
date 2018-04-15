@@ -1,26 +1,60 @@
-<div>
-  Crop: 
-  <span>{{ crop }}</span>
-</div>
-<div>
-  Season: 
-  <span>{{ season }}</span>
-</div>
-<div>
-  Land Size:
-  <input type="number" [(ngModel)]="landSize">
-</div>
-<div>
-  Percent Covered:
-  <input type="number" [(ngModel)]="percentCovered">
-</div>
-
-<div>
-    Total Coverage:
-    <input type="number" [value]="getTotalCoverage()">
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      Crop: 
+    </div>
+    <div class="col-4">
+      <span>{{ crop }}</span>
+    </div>
   </div>
-
-<div>
-  Total Premium:
-  <input type="number" [value]="getTotalPremium()">
+  <br>
+  <div class="row">
+    <div class="col-2">
+      Season: 
+    </div>
+    <div class="col-4">
+      <span>{{ season }}</span>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-2">
+      Land Size:
+    </div>
+    <div class="col-4">
+      <input type="number" [(ngModel)]="landSize">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    
+    <div class="col-2">
+      Percent Covered:
+    </div>
+    <div class="col-4">
+      <input type="number" [(ngModel)]="percentCovered">
+      <span class="error text-danger" *ngIf="percentCovered < 0 || percentCovered > 100">
+          <p>% must be between 0 to 100</p>
+      </span>
+    </div>
+    
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-2">
+      Total Coverage:
+    </div>
+    <div class="col-4">
+      <input type="number" [value]="getTotalCoverage()">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-2">
+      Total Premium:
+    </div>
+    <div class="col-4">
+      <input type="number" [value]="getTotalPremium()">
+    </div>
+  </div>
 </div>

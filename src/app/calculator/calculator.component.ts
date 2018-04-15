@@ -16,17 +16,20 @@ export class CalculatorComponent implements OnInit {
   season:string = '2018';
   premiumPercent:number = 3;
   landSize:number = 0;
-  percentCovered:number = 85;
+  percentCovered:number = 100;
   probableYieldNiono:number = 6182;
   unitPrice:number = 75;
+  insurablePercent:number = 0.85;
 
 
   getTotalCoverage(){
-    return  (this.percentCovered * this.landSize * this.probableYieldNiono * this.unitPrice) / (100);
+    var totalCoverage =  (this.percentCovered * this.landSize * this.probableYieldNiono * this.unitPrice * this.insurablePercent) / (100);
+    return Math.ceil(totalCoverage/10)*10;
   }
 
   getTotalPremium(){
-    return  (this.premiumPercent * this.percentCovered * this.landSize * this.probableYieldNiono * this.unitPrice) / (100*100);
+    var totalPremium =  (this.premiumPercent * this.percentCovered * this.landSize * this.probableYieldNiono * this.unitPrice *this.insurablePercent) / (100*100);
+    return Math.ceil(totalPremium/10)*10;
   }
 
 }
