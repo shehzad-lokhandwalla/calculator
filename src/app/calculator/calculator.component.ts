@@ -17,19 +17,20 @@ export class CalculatorComponent implements OnInit {
   premiumPercent:number = 3;
   landSize:number = 0;
   percentCovered:number = 100;
-  probableYieldNiono:number = 6182;
+  probableYieldNiono:number = 5250;
   unitPrice:number = 75;
   insurablePercent:number = 0.85;
 
 
   getTotalCoverage(){
     var totalCoverage =  (this.percentCovered * this.landSize * this.probableYieldNiono * this.unitPrice * this.insurablePercent) / (100);
-    return Math.ceil(totalCoverage/10)*10;
+    return (Math.ceil(totalCoverage/10)*10);
   }
 
   getTotalPremium(){
-    var totalPremium =  (this.premiumPercent * this.percentCovered * this.landSize * this.probableYieldNiono * this.unitPrice *this.insurablePercent) / (100*100);
-    return Math.ceil(totalPremium/10)*10;
+    var totalPremium =  (this.premiumPercent * this.percentCovered * this.landSize * this.probableYieldNiono * this.unitPrice * this.insurablePercent) / (100*100);
+    return (Math.ceil(totalPremium/10)*10);
   }
-
+  
 }
+

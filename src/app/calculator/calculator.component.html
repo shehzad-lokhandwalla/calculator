@@ -45,7 +45,7 @@
       Total Coverage:
     </div>
     <div class="col-4">
-      <input type="number" [value]="getTotalCoverage()">
+      <span>{{getTotalCoverage()|number}}</span>
     </div>
   </div>
   <br>
@@ -54,7 +54,7 @@
       Total Premium:
     </div>
     <div class="col-4">
-      <input type="number" [value]="getTotalPremium()">
+      <span>{{getTotalPremium()| number}}</span>
     </div>
   </div>
 </div>
