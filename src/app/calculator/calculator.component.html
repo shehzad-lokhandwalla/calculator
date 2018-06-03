@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-2">
-      Crop: 
+      Culture: 
     </div>
     <div class="col-4">
       <span>{{ crop }}</span>
@@ -10,51 +10,64 @@
   <br>
   <div class="row">
     <div class="col-2">
-      Season: 
+      Saison: 
     </div>
     <div class="col-4">
       <span>{{ season }}</span>
     </div>
   </div>
   <br>
+
   <div class="row">
     <div class="col-2">
-      Land Size:
+      Zone:
     </div>
     <div class="col-4">
-      <input type="number" [(ngModel)]="landSize">
+      <select class="form-control" [(ngModel)]="zone">
+        <option *ngFor="let zoneObj of zones" [ngValue]="zoneObj">{{zoneObj.name}}</option>
+      </select>
     </div>
   </div>
+
   <br>
   <div class="row">
-    
     <div class="col-2">
-      Percent Covered:
+      Surface:
     </div>
     <div class="col-4">
-      <input type="number" [(ngModel)]="percentCovered">
-      <span class="error text-danger" *ngIf="percentCovered < 0 || percentCovered > 100">
-          <p>% must be between 0 to 100</p>
+      <input type="number" step="0.01" lang="en-150" [(ngModel)]="landSize"> <b>Ha</b>
+      <span class="error text-danger" *ngIf="landSize && landSize < 0.25">
+        <p>% Surface doit être plus que 0,25</p>
       </span>
     </div>
+  </div>
+  <br>
     
+  <br>
+  <div class="row">
+    <div class="col-2">
+      Valeur Assurée/ha:
+    </div>
+    <div class="col-4">
+      <span>{{getTotalCoverage()|number}}</span> <b *ngIf="getTotalCoverage()>0">FCFA</b>
+    </div>
   </div>
   <br>
   <div class="row">
     <div class="col-2">
-      Total Coverage:
+      Prime totale:
     </div>
     <div class="col-4">
-      <span>{{getTotalCoverage()|number}}</span>
+      <span>{{getTotalPremium()| number}}</span> <b *ngIf="getTotalPremium()>0">FCFA</b>
     </div>
   </div>
   <br>
   <div class="row">
     <div class="col-2">
-      Total Premium:
+      Montant à payer (prime + taxe):
     </div>
     <div class="col-4">
-      <span>{{getTotalPremium()| number}}</span>
+      <span>{{getTotalPremiumWithTax() | number:''}}</span> <b *ngIf="getTotalPremiumWithTax()>0">FCFA</b>
     </div>
   </div>
 </div>
