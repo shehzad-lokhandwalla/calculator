@@ -45,7 +45,8 @@ export class CalculatorComponent implements OnInit {
     if(this.zone.expectedYield)
     {
       var totalCoverage =  ( this.landSize * this.zone.expectedYield * this.unitPrice * this.insurablePercent);
-      return (Math.ceil(totalCoverage/10)*10);
+      //return (Math.ceil(totalCoverage/10)*10);
+      return totalCoverage;
     }
   }
 
@@ -53,7 +54,8 @@ export class CalculatorComponent implements OnInit {
     if(this.zone.expectedYield)
     {
       var totalPremium =  (this.premiumPercent * this.landSize * this.zone.expectedYield * this.unitPrice * this.insurablePercent) / (100);
-      return (Math.ceil(totalPremium/10)*10);
+      //return (Math.ceil(totalPremium/10)*10);
+      return totalPremium;
     }
   }
 
